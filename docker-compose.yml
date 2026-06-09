@@ -1,0 +1,18 @@
+﻿version: "3.9"
+
+services:
+  glms-backend-api:
+    build:
+      context: ./TECHMOVEProg.Api
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+
+  glms-frontend-web:
+    build:
+      context: ./TECHMOVEProg
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - glms-backend-api
